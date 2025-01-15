@@ -23,33 +23,32 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-
+        // Creation des personnages
         $Personnage1 = new Personnage();
         $Personnage1->setNomPersonnage('Jacque');
         $manager->persist($Personnage1);
 
-        $Personnage2 = new Personnage();
-        $Personnage2->setNomPersonnage('Franck');
-        $manager->persist($Personnage2);
-
         $Caracteristique1 = new Caracteristique();
-        $Caracteristique1->setIdPersonnage($Personnage1);
+        $Caracteristique1->setIdPersonnage($Personnage1); // Relation ManyToOne
         $Caracteristique1->setAura('10');
-        $Caracteristique1->setHumour('10');
-        $Caracteristique1->setCharisme('10');
-        $Caracteristique1->setPertinence('10');
-        $Caracteristique1->setIntelligence('10');
+        $Caracteristique1->setHumour('0');
+        $Caracteristique1->setCharisme('0');
+        $Caracteristique1->setPertinence('0');
+        $Caracteristique1->setIntelligence('0');
         $manager->persist($Caracteristique1);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        // Creation du scenario
         $Scenario1 = new Scenario();
-        $Scenario1->setNomScenario('TheDate');
-        $Scenario1->setDescription('Objectif: treper le biscuit');
+        $Scenario1->setNomScenario('Objectif: Tremper le Biscuit');
+        $Scenario1->setDescription("Un rendez-vous amoureux epique... ou totalement desastreux.");
         $manager->persist($Scenario1);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Niveau 1 : L'arrivee au cafe
         $Niveau1 = new Niveau();
-        $Niveau1->setNomNiveau('LeDebut');
-        $Niveau1->setTextNiveau('Connessance');
+        $Niveau1->setNomNiveau('L Arrivee Epique');
+        $Niveau1->setTextNiveau("Vous arrivez au cafe en retard de 15 minutes. Votre date vous fixe avec un sourire... legerement crispe.");
         $Niveau1->setLeScenario($Scenario1);
         $manager->persist($Niveau1);
 
