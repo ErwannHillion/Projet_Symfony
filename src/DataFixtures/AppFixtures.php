@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-<<<<<<< HEAD
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Caracteristique;
@@ -10,10 +9,18 @@ use App\Entity\Choix;
 use App\Entity\Niveau;
 use App\Entity\Personnage;
 use App\Entity\Scenario;
-
+use App\Entity\User;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    private UserPasswordHasherInterface $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+
     public function load(ObjectManager $manager): void
     {
 
@@ -52,31 +59,7 @@ class AppFixtures extends Fixture
          $Choix->setLeNiveau($Niveau1);
          $manager->persist($Choix);
 
-
-
-
-        // $product = new Product();
-        // $manager->persist($product);
-
-=======
-use App\Entity\User;
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
-class AppFixtures extends Fixture
-{
-    private UserPasswordHasherInterface $passwordHasher;
-
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
-    {
-        $this->passwordHasher = $passwordHasher;
-    }
-
-
-    public function load(ObjectManager $manager, ): void
-    {
-        $user1 = new User();
+                 $user1 = new User();
         $user1->setUsername('Admin');
         $hashedPassword = $this->passwordHasher->hashPassword($user1, 'admin');
         $user1->setPassword($hashedPassword);
@@ -90,8 +73,11 @@ class AppFixtures extends Fixture
         $user2->setPassword($hashedPassword);
         $user2->setRoles(['ROLE_USER']);
         $manager->persist($user2);
-        
->>>>>>> f067344 (login page)
+
         $manager->flush();
+
+
+
+
     }
 }
