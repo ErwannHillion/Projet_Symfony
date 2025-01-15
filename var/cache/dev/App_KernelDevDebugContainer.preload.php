@@ -9,6 +9,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
     return;
 }
 
+<<<<<<< HEAD
 require dirname(__DIR__, 3).'/vendor/autoload.php';
 (require __DIR__.'/App_KernelDevDebugContainer.php')->set(\ContainerYel6xEw\App_KernelDevDebugContainer::class, null);
 require __DIR__.'/ContainerYel6xEw/EntityManagerGhostEbeb667.php';
@@ -88,6 +89,90 @@ require __DIR__.'/ContainerYel6xEw/get_Debug_ValueResolver_ArgumentResolver_Date
 require __DIR__.'/ContainerYel6xEw/get_Debug_ValueResolver_ArgumentResolver_BackedEnumResolverService.php';
 require __DIR__.'/ContainerYel6xEw/get_Debug_Security_Voter_Security_Access_SimpleRoleVoterService.php';
 require __DIR__.'/ContainerYel6xEw/get_Debug_Security_Voter_Security_Access_AuthenticatedVoterService.php';
+=======
+require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
+(require __DIR__.'/App_KernelDevDebugContainer.php')->set(\ContainerEpjpQnY\App_KernelDevDebugContainer::class, null);
+require __DIR__.'/ContainerEpjpQnY/EntityManagerGhostEbeb667.php';
+require __DIR__.'/ContainerEpjpQnY/RequestPayloadValueResolverGhost3590451.php';
+require __DIR__.'/ContainerEpjpQnY/getWebProfiler_Controller_RouterService.php';
+require __DIR__.'/ContainerEpjpQnY/getWebProfiler_Controller_ProfilerService.php';
+require __DIR__.'/ContainerEpjpQnY/getWebProfiler_Controller_ExceptionPanelService.php';
+require __DIR__.'/ContainerEpjpQnY/getTwig_Runtime_SecurityCsrfService.php';
+require __DIR__.'/ContainerEpjpQnY/getTwig_Runtime_HttpkernelService.php';
+require __DIR__.'/ContainerEpjpQnY/getSession_Handler_NativeService.php';
+require __DIR__.'/ContainerEpjpQnY/getSession_FactoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getServicesResetterService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_RouteLoader_LogoutService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_PasswordHasherFactoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Logout_Listener_CsrfTokenClearingService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_UserProviderService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_UserChecker_MainService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_Session_MainService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_PasswordMigratingService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_Main_UserProviderService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_CsrfProtectionService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Listener_CheckAuthenticatorCredentialsService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Firewall_Map_Context_MainService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Firewall_Map_Context_DevService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Csrf_TokenStorageService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_Csrf_TokenManagerService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_ChannelListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecurity_AccessListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getSecrets_VaultService.php';
+require __DIR__.'/ContainerEpjpQnY/getRouting_LoaderService.php';
+require __DIR__.'/ContainerEpjpQnY/getFragment_Renderer_InlineService.php';
+require __DIR__.'/ContainerEpjpQnY/getErrorHandler_ErrorRenderer_HtmlService.php';
+require __DIR__.'/ContainerEpjpQnY/getErrorControllerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_UuidGeneratorService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_UlidGeneratorService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_Listeners_PdoSessionHandlerSchemaListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_Listeners_LockStoreSchemaListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_Listeners_DoctrineTokenProviderSchemaListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_Listeners_DoctrineDbalCacheAdapterSchemaListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_DefaultListeners_AttachEntityListenersService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Orm_DefaultEntityManagerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Dbal_DefaultConnection_EventManagerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDoctrine_Dbal_DefaultConnectionService.php';
+require __DIR__.'/ContainerEpjpQnY/getDebug_Security_Voter_VoteListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getDebug_Security_Firewall_Authenticator_MainService.php';
+require __DIR__.'/ContainerEpjpQnY/getDebug_FileLinkFormatter_UrlFormatService.php';
+require __DIR__.'/ContainerEpjpQnY/getDebug_ErrorHandlerConfiguratorService.php';
+require __DIR__.'/ContainerEpjpQnY/getDataCollector_Request_SessionCollectorService.php';
+require __DIR__.'/ContainerEpjpQnY/getController_TemplateAttributeListenerService.php';
+require __DIR__.'/ContainerEpjpQnY/getContainer_GetRoutingConditionServiceService.php';
+require __DIR__.'/ContainerEpjpQnY/getContainer_EnvVarProcessorsLocatorService.php';
+require __DIR__.'/ContainerEpjpQnY/getContainer_EnvVarProcessorService.php';
+require __DIR__.'/ContainerEpjpQnY/getCache_SystemClearerService.php';
+require __DIR__.'/ContainerEpjpQnY/getCache_GlobalClearerService.php';
+require __DIR__.'/ContainerEpjpQnY/getCache_AppClearerService.php';
+require __DIR__.'/ContainerEpjpQnY/getTemplateControllerService.php';
+require __DIR__.'/ContainerEpjpQnY/getRedirectControllerService.php';
+require __DIR__.'/ContainerEpjpQnY/getProfilerControllerService.php';
+require __DIR__.'/ContainerEpjpQnY/getScenarioRepositoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getPersonnageRepositoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getNiveauRepositoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getChoixRepositoryService.php';
+require __DIR__.'/ContainerEpjpQnY/getCaracteristiqueRepositoryService.php';
+require __DIR__.'/ContainerEpjpQnY/get_ServiceLocator_Y4Zrx_Service.php';
+require __DIR__.'/ContainerEpjpQnY/get_ServiceLocator_HBdvAhpService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Security_RequestMatcher_KLbKLHaService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_Security_UserValueResolverService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_Security_SecurityTokenValueResolverService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_Doctrine_Orm_EntityValueResolverService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_VariadicService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_SessionService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_ServiceService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_RequestPayloadService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_RequestAttributeService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_RequestService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_QueryParameterValueResolverService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_NotTaggedControllerService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_DefaultService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_DatetimeService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_ValueResolver_ArgumentResolver_BackedEnumResolverService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_Security_Voter_Security_Access_SimpleRoleVoterService.php';
+require __DIR__.'/ContainerEpjpQnY/get_Debug_Security_Voter_Security_Access_AuthenticatedVoterService.php';
+>>>>>>> b876eea (creation de la base de donnee)
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -98,6 +183,7 @@ $classes[] = 'Symfony\Bundle\WebProfilerBundle\WebProfilerBundle';
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\DoctrineBundle';
 $classes[] = 'Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle';
 $classes[] = 'Symfony\Bundle\SecurityBundle\SecurityBundle';
+$classes[] = 'Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle';
 $classes[] = 'Symfony\Component\HttpKernel\Profiler\Profiler';
 $classes[] = 'Symfony\Component\HttpKernel\Profiler\FileProfilerStorage';
 $classes[] = 'Symfony\Component\Console\DataCollector\CommandDataCollector';
@@ -134,7 +220,15 @@ $classes[] = 'Symfony\Component\HttpFoundation\ChainRequestMatcher';
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher\PathRequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'Symfony\Component\HttpKernel\Debug\VirtualRequestStack';
+<<<<<<< HEAD
 $classes[] = 'App\Repository\UserRepository';
+=======
+$classes[] = 'App\Repository\CaracteristiqueRepository';
+$classes[] = 'App\Repository\ChoixRepository';
+$classes[] = 'App\Repository\NiveauRepository';
+$classes[] = 'App\Repository\PersonnageRepository';
+$classes[] = 'App\Repository\ScenarioRepository';
+>>>>>>> b876eea (creation de la base de donnee)
 $classes[] = 'Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
@@ -323,3 +417,8 @@ $classes[] = 'Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator';
 $classes[] = 'Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener';
 
 $preloaded = Preloader::preload($classes);
+
+$classes = [];
+$classes[] = 'Symfony\\Component\\Routing\\Generator\\CompiledUrlGenerator';
+$classes[] = 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableCompiledUrlMatcher';
+$preloaded = Preloader::preload($classes, $preloaded);
