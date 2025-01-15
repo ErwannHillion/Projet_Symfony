@@ -11,6 +11,7 @@
 /config/packages/doctrine.yaml
 config/packages/doctrine.yaml
 .env
-/var/cache/dev
-var/cache/dev
+/var/cache
+var/cache
+composer.lock
 ###< symfony/framework-bundle ###

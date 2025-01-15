@@ -9,10 +9,18 @@ use App\Entity\Choix;
 use App\Entity\Niveau;
 use App\Entity\Personnage;
 use App\Entity\Scenario;
-
+use App\Entity\User;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    private UserPasswordHasherInterface $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+
     public function load(ObjectManager $manager): void
     {
 
@@ -51,12 +59,25 @@ class AppFixtures extends Fixture
          $Choix->setLeNiveau($Niveau1);
          $manager->persist($Choix);
 
+                 $user1 = new User();
+        $user1->setUsername('Admin');
+        $hashedPassword = $this->passwordHasher->hashPassword($user1, 'admin');
+        $user1->setPassword($hashedPassword);
+        $user1->setRoles(['ROLE_ADMIN']);
+        $manager->persist($user1);
 
 
-
-        // $product = new Product();
-        // $manager->persist($product);
+        $user2 = new User();
+        $user2->setUsername('User');
+        $hashedPassword = $this->passwordHasher->hashPassword($user2, 'user');
+        $user2->setPassword($hashedPassword);
+        $user2->setRoles(['ROLE_USER']);
+        $manager->persist($user2);
 
         $manager->flush();
+
+
+
+
     }
 }
