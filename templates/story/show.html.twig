@@ -1,0 +1,25 @@
+<h1>{{ scenario.NomScenario }}</h1>
+<h2>Niveau: {{ niveau.nomNiveau }}</h2>
+
+<ul>
+    {% for choix in choix %}
+        <li>
+            <a href="{{ path('story_choix', { 'slug': scenario.NomScenario|replace({' ': '-'})|lower, 'niveauId': niveau.id, 'choixId': choix.id }) }}">
+                <button>{{ choix.nomChoix }}</button>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% set niveaux = scenario.getLesNiveaux() %}
+{% set currentIndex = niveaux.indexOf(niveau) %}
+{% set nextNiveau = null %}
+{% if currentIndex + 1 < niveaux|length %}
+    {% set nextNiveau = niveaux[currentIndex + 1] %}
+{% endif %}
+
+{% if nextNiveau %}
+    <a href="{{ path('story_show', { 'slug': scenario.NomScenario|replace({' ': '-'})|lower, 'niveauId': nextNiveau.id }) }}">Passer au niveau suivant</a>
+{% else %}
+    <p>Fin du scénario</p>
+{% endif %}

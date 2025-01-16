@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Story{% endblock %}
+
+{% block body %}
+    <h1>Scénarios</h1>
+    <div class="d-flex flex-wrap">
+        {% for item in scenarios %}
+            <a href="{{ path('story_show', {slug: item.slug}) }}" class="btn btn-primary m-2">
+                {{ item.scenario.NomScenario }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

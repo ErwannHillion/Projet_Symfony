@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
         $Caracteristique1->setPertinence('0');
         $Caracteristique1->setIntelligence('0');
         $manager->persist($Caracteristique1);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Creation du scenario
         // Creation du scenario
@@ -44,9 +44,9 @@ class AppFixtures extends Fixture
         $Scenario1->setNomScenario('Objectif: Tremper le biscuit');
         $Scenario1->setDescription("Un rendez-vous ou tout peut basculer. Elle, une femme elegante et intelligente, passionnee par l art, les voyages, et les discussions profondes. Sa faiblesse ? Un sens de l humour audacieux et un charme authentique. Saurez-vous capter son attention et gagner son coeur ?");
         $manager->persist($Scenario1);
-        
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Niveau 1 : L'arrivee au cafe
         $Niveau1 = new Niveau();
         $Niveau1->setNomNiveau('L Arrivee Epique');
@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
         $Niveau1->setTextNiveau("Vous arrivez au cafe en retard de 15 minutes. Votre date vous fixe avec un sourire... legerement crispe.");
         $Niveau1->setLeScenario($Scenario1);
         $manager->persist($Niveau1);
-        
+
         // Choix du Niveau 1
         $Choix1_1 = new Choix();
         $Choix1_1->setNomChoix("Vous dites : « Desole, j ai croise un chat qui ressemblait trop à mon ex, ça m a trouble. »");
@@ -98,9 +98,9 @@ class AppFixtures extends Fixture
         $Choix1_6->setConsequenceChoix(["+2", "+1", "+1", "+1", "0"]);
         $Choix1_6->setLeNiveau($Niveau1);
         $manager->persist($Choix1_6);
-        
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Niveau 2 : La commande
         $Niveau2 = new Niveau();
@@ -116,28 +116,28 @@ class AppFixtures extends Fixture
         $Choix2_1->setConsequenceChoix(["-3", "+1", "+2", "-2", "0"]);
         $Choix2_1->setLeNiveau($Niveau2);
         $manager->persist($Choix2_1);
-        
+
         $Choix2_2 = new Choix();
         $Choix2_2->setNomChoix("Vous commandez : « Un lait de chèvre bio avec un soupçon de miel et de l amour, s il vous plaît. »");
         $Choix2_2->setTextChoix("Elle eclate de rire, amusee par votre audace, mais trouve cela un peu etrange.");
         $Choix2_2->setConsequenceChoix(["+2", "+1", "+1", "+1", "-1"]);
         $Choix2_2->setLeNiveau($Niveau2);
         $manager->persist($Choix2_2);
-        
+
         $Choix2_3 = new Choix();
         $Choix2_3->setNomChoix("Vous attendez sans rien dire. L ambiance devient... gênante.");
         $Choix2_3->setTextChoix("Elle detourne les yeux, visiblement mal à l aise par le silence pesant.");
         $Choix2_3->setConsequenceChoix(["-2", "-1", "-3", "0", "0"]);
         $Choix2_3->setLeNiveau($Niveau2);
         $manager->persist($Choix2_3);
-        
+
         $Choix2_4 = new Choix();
         $Choix2_4->setNomChoix("Vous demandez au serveur : « Surprenez-nous avec ce qu il y a de plus extravagant dans le menu. »");
         $Choix2_4->setTextChoix("Elle sourit, curieuse de voir ce que vous avez commande, et apprecie votre spontaneite.");
         $Choix2_4->setConsequenceChoix(["+1", "0", "+1", "+2", "0"]);
         $Choix2_4->setLeNiveau($Niveau2);
         $manager->persist($Choix2_4);
-        
+
         $Choix2_5 = new Choix();
         $Choix2_5->setNomChoix("Vous commandez : « Deux cocktails maison et un dessert partage pour commencer en beaute. »");
         $Choix2_5->setTextChoix("Elle est impressionnee par votre choix audacieux et semble apprecier l idee.");
@@ -145,16 +145,16 @@ class AppFixtures extends Fixture
         $Choix2_5->setLeNiveau($Niveau2);
         $manager->persist($Choix2_5);
 
-        
-        
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         $Niveau3 = new Niveau();
         $Niveau3->setNomNiveau('Discussion');
         $Niveau3->setTextNiveau("Votre date vous demande : « Et toi, tu fais quoi dans la vie ? » C est l occasion de briller ou de surprendre.");
         $Niveau3->setLeScenario($Scenario1);
         $manager->persist($Niveau3);
-        
+
         // Choix du Niveau 3
 
         $Choix3_1 = new Choix();
@@ -164,37 +164,37 @@ class AppFixtures extends Fixture
         $Choix3_1->setLeNiveau($Niveau3);
         $manager->persist($Choix3_1);
 
-        
+
         $Choix3_2 = new Choix();
         $Choix3_2->setNomChoix("Vous repondez : « Je suis dresseur d abeilles pour des scènes de cinema. Oui, c est un vrai metier. »");
         $Choix3_2->setTextChoix("Elle eclate de rire et semble fascinee par votre metier hors du commun.");
         $Choix3_2->setConsequenceChoix(["+2", "+2", "+1", "+2", "-2"]);
         $Choix3_2->setLeNiveau($Niveau3);
         $manager->persist($Choix3_2);
-        
+
         $Choix3_3 = new Choix();
         $Choix3_3->setNomChoix("Vous repondez avec un sourire mysterieux : « Je suis acteur dans le X... mais seulement pour les scènes avec un scenario. »");
         $Choix3_3->setTextChoix("Elle rougit, eclate de rire, et semble intriguee par votre humour audacieux.");
         $Choix3_3->setConsequenceChoix(["+1", "+3", "0", "+2", "+2"]);
         $Choix3_3->setLeNiveau($Niveau3);
         $manager->persist($Choix3_3);
-        
+
         $Choix3_4 = new Choix();
         $Choix3_4->setNomChoix("Vous repondez : « C est complique, mais disons que j aide les gens à realiser leurs reves. »");
         $Choix3_4->setTextChoix("Elle vous ecoute attentivement, intriguee et charmee par votre mystere.");
         $Choix3_4->setConsequenceChoix(["+1", "0", "+1", "+1", "+1"]);
         $Choix3_4->setLeNiveau($Niveau3);
         $manager->persist($Choix3_4);
-        
+
         $Choix3_5 = new Choix();
         $Choix3_5->setNomChoix("Vous repondez : « Je bosse dans la compta. Pas très excitant, mais ça paie les factures. »");
         $Choix3_5->setTextChoix("Elle sourit poliment, mais semble un peu deçue par votre reponse terre-à-terre.");
         $Choix3_5->setConsequenceChoix(["-2", "+1", "0", "-4", "+1"]);
         $Choix3_5->setLeNiveau($Niveau3);
         $manager->persist($Choix3_5);
-        
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Niveau 4 : Le moment de verite
         $Niveau4 = new Niveau();
@@ -210,38 +210,38 @@ class AppFixtures extends Fixture
         $Choix4_1->setConsequenceChoix(["-4", "0", "-2", "0", "+1"]);
         $Choix4_1->setLeNiveau($Niveau4);
         $manager->persist($Choix4_1);
-        
+
         $Choix4_2 = new Choix();
         $Choix4_2->setNomChoix("Vous lui proposez : « Si tu veux, on peut aller chez moi... J ai une super collection de memes. »");
         $Choix4_2->setTextChoix("Elle eclate de rire et accepte votre proposition, intriguee par votre humour.");
         $Choix4_2->setConsequenceChoix(["+2", "+3", "0", "+1", "0"]);
         $Choix4_2->setLeNiveau($Niveau4);
         $manager->persist($Choix4_2);
-        
+
         $Choix4_3 = new Choix();
         $Choix4_3->setNomChoix("Vous pretextez un appel urgent de votre grand-mère pour eviter un echec potentiel.");
         $Choix4_3->setTextChoix("Elle semble deçue, mais accepte votre depart precipite sans poser de questions.");
         $Choix4_3->setConsequenceChoix(["-3", "+1", "0", "+2", "+1"]);
         $Choix4_3->setLeNiveau($Niveau4);
         $manager->persist($Choix4_3);
-        
+
         $Choix4_4 = new Choix();
         $Choix4_4->setNomChoix("Vous dites : « Avant que tu partes, sache que je suis peut-être le heros dont ce monde a besoin. »");
         $Choix4_4->setTextChoix("Elle rit doucement, un peu gênee, mais semble intriguee par votre declaration.");
         $Choix4_4->setConsequenceChoix(["+2", "+1", "+2", "+1", "+1"]);
         $Choix4_4->setLeNiveau($Niveau4);
         $manager->persist($Choix4_4);
-        
+
         $Choix4_5 = new Choix();
         $Choix4_5->setNomChoix("Vous proposez une danse lente dans un cafe vide en disant : « Pourquoi pas rendre cette soiree inoubliable ? »");
         $Choix4_5->setTextChoix("Elle accepte avec un sourire, visiblement emue par votre geste romantique.");
         $Choix4_5->setConsequenceChoix(["+4", "0", "+2", "0", "+1"]);
         $Choix4_5->setLeNiveau($Niveau4);
         $manager->persist($Choix4_5);
-        
 
 
-///////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////
 
         $user1 = new User();
         $user1->setUsername('Admin');
