@@ -30,18 +30,12 @@ class AppFixtures extends Fixture
 
         $Caracteristique1 = new Caracteristique();
         $Caracteristique1->setIdPersonnage($Personnage1); // Relation ManyToOne
-        $Caracteristique1->setIdPersonnage($Personnage1); // Relation ManyToOne
         $Caracteristique1->setAura('10');
         $Caracteristique1->setHumour('0');
         $Caracteristique1->setCharisme('0');
         $Caracteristique1->setPertinence('0');
         $Caracteristique1->setIntelligence('0');
-        $Caracteristique1->setHumour('0');
-        $Caracteristique1->setCharisme('0');
-        $Caracteristique1->setPertinence('0');
-        $Caracteristique1->setIntelligence('0');
         $manager->persist($Caracteristique1);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Creation du scenario
