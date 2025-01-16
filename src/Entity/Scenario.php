@@ -18,14 +18,15 @@ class Scenario
     #[ORM\Column(length: 255)]
     private ?string $NomScenario = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Description = null;
 
     /**
      * @var Collection<int, Niveau>
      */
     #[ORM\OneToMany(targetEntity: Niveau::class, mappedBy: 'LeScenario', orphanRemoval: true)]
     private Collection $LesNiveaux;
+
+    #[ORM\Column(length: 1024)]
+    private ?string $Description = null;
 
     public function __construct()
     {
@@ -52,17 +53,7 @@ class Scenario
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->Description;
-    }
 
-    public function setDescription(string $Description): static
-    {
-        $this->Description = $Description;
-
-        return $this;
-    }
 
     // public function getNiveau(): ?Niveau
     // {
@@ -109,5 +100,17 @@ class Scenario
     public function __toString(): string
     {
         return $this->NomScenario;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): static
+    {
+        $this->Description = $Description;
+
+        return $this;
     }
 }
