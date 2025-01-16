@@ -42,6 +42,10 @@
 # Build data
 /build/
 
+/.env.local.php
+/.env.local
+/.env.*.local
+/.env
 # Composer PHAR
 /composer.phar
 

@@ -30,9 +30,7 @@ class Choix
     #[ORM\JoinColumn(nullable: false)]
     private ?Niveau $LeNiveau = null;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function getId(): ?int
     {
@@ -87,5 +85,10 @@ class Choix
         $this->LeNiveau = $LeNiveau;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->LeNiveau;
     }
 }
