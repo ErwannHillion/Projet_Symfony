@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un personnage{% endblock %}
+
+{% block body %}
+    <h1>Création d'un personnage</h1>
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        {{ form_row(form.NomPersonnage) }}
+        {{ form_row(form.Aura) }}
+        {{ form_row(form.Humour) }}
+        {{ form_row(form.Charisme) }}
+        {{ form_row(form.Pertinence) }}
+        {{ form_row(form.Intelligence) }}
+        <button class="btn btn-primary">Créer</button>
+    {{ form_end(form) }}
+{% endblock %}
