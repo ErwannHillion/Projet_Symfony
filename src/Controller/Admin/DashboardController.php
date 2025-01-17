@@ -17,9 +17,7 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ScenarioCrudController::class)->generateUrl();
-        return $this->redirect($url);
+        return $this->redirectToRoute('app_main');
 
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
@@ -39,15 +37,23 @@ class DashboardController extends AbstractDashboardController
         // return $this->render('some/path/my-dashboard.html.twig');
     }
 
+    #[Route('/roadToAdmin', name: 'roadAdmin')]
+    public function navbarToAdmin(): Response
+    {
+        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
+        $url = $routeBuilder->setController(ScenarioCrudController::class)->generateUrl();
+        return $this->redirect($url);
+    }
+    
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Projet Symfony');
+            ->setTitle('Plan Culinaire');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Scénarios', 'fas fa-list', Scenario::class);
         yield MenuItem::linkToCrud('Niveaux', 'fas fa-list', Niveau::class);
         yield MenuItem::linkToCrud('Choix', 'fas fa-list', Choix::class);
