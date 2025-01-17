@@ -58,7 +58,8 @@ final class StoryController extends AbstractController
         }
     
         $choix = $niveau->getLesChoix();
-        $personnage = $this->entityManager->getRepository(Personnage::class)->find(6);
+        $personnage = $this->entityManager->getRepository(Personnage::class)->findOneBy([], ['id' => 'DESC']);
+
     
         // Vérifiez si les caractéristiques existent pour le personnage
         $caracteristiques = $personnage ? $personnage->getAura() : null;
@@ -79,7 +80,9 @@ public function choix(string $slug, int $niveauId, int $choixId): Response
     $scenario = $this->entityManager->getRepository(Scenario::class)->findOneBy(['NomScenario' => str_replace('-', ' ', $slug)]);
     $niveau = $this->entityManager->getRepository(Niveau::class)->find($niveauId);
     $choix = $this->entityManager->getRepository(Choix::class)->find($choixId);
-    $personnage = $this->entityManager->getRepository(Personnage::class)->find(6);
+    //$personnage = $this->entityManager->getRepository(Personnage::class)->find(6);
+    $personnage = $this->entityManager->getRepository(Personnage::class)->findOneBy([], ['id' => 'DESC']);
+
 
     if (!$scenario || !$niveau || !$choix) {
         throw $this->createNotFoundException('Le scénario, le niveau ou le choix n\'existe pas');
