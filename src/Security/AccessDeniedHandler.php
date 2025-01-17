@@ -21,7 +21,7 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
     {
         // Redirige vers la route de connexion
         return new Response('acces refusé', Response::HTTP_SEE_OTHER, [
-            'Location' => $this->router->generate('app_login')
+            'Location' => $this->router->generate('app_main')
         ]);
     }
 }

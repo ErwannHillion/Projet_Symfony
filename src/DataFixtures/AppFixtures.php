@@ -41,7 +41,7 @@ class AppFixtures extends Fixture
         // Creation du scenario
         // Creation du scenario
         $Scenario1 = new Scenario();
-        $Scenario1->setNomScenario('Objectif: Tremper le biscuit');
+        $Scenario1->setNomScenario('Tremper le biscuit');
         $Scenario1->setDescription("Un rendez-vous ou tout peut basculer. Elle, une femme elegante et intelligente, passionnee par l art, les voyages, et les discussions profondes. Sa faiblesse ? Un sens de l humour audacieux et un charme authentique. Saurez-vous capter son attention et gagner son coeur ?");
         $manager->persist($Scenario1);
 

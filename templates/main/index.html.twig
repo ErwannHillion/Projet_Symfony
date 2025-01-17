@@ -3,15 +3,16 @@
 {% block title %}Plan Culinaire
 {% endblock %}
 
-
 {% block body %}
 	<div class="container-fluid p-0 background-image">
-		<div class="row justify-content-center align-items-center text-white" style="height: 100%;">
-			<div class="col-12 text-center">
+		<div class="row justify-content-center align-items-center text-center text-warning" style="height: 100vh;">
+			<div class="col-12 mb-4">
 				<h1>Bienvenue dans votre Plan Culinaire</h1>
-				{# <a href="{{path('stroy')}}"> #}
 				<h3>Rencontrez, dégustez, savourez.</h3>
-				{# </a> #}
+				<p class="lead mb-4">Un petit aperçu de vous, avant de goûter à l’expérience.</p>
+				<a href="{{ path('story') }}" class="btn btn-link text-dark">
+					<span>Commencez ici</span>
+				</a>
 			</div>
 		</div>
 	</div>
