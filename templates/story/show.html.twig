@@ -1,6 +1,23 @@
 <h1>{{ scenario.NomScenario }}</h1>
 <h2>Niveau: {{ niveau.nomNiveau }}</h2>
 
+<h3>Situation: {{ niveau.TextNiveau }}</h3>
+
+<div>
+    <h3>Statistiques du personnage :</h3>
+    {% if caracteristiques %}
+        <ul>
+            <li><strong>Aura :</strong> {{ caracteristiques.Aura }}</li>
+            <li><strong>Humour :</strong> {{ caracteristiques.Humour }}</li>
+            <li><strong>Charisme :</strong> {{ caracteristiques.Charisme }}</li>
+            <li><strong>Pertinence :</strong> {{ caracteristiques.Pertinence }}</li>
+            <li><strong>Intelligence :</strong> {{ caracteristiques.Intelligence }}</li>
+        </ul>
+    {% else %}
+        <p>Aucune caractéristique disponible pour ce personnage.</p>
+    {% endif %}
+</div>
+
 <ul>
     {% for choix in choix %}
         <li>
@@ -10,16 +27,3 @@
         </li>
     {% endfor %}
 </ul>
-
-{% set niveaux = scenario.getLesNiveaux() %}
-{% set currentIndex = niveaux.indexOf(niveau) %}
-{% set nextNiveau = null %}
-{% if currentIndex + 1 < niveaux|length %}
-    {% set nextNiveau = niveaux[currentIndex + 1] %}
-{% endif %}
-
-{% if nextNiveau %}
-    <a href="{{ path('story_show', { 'slug': scenario.NomScenario|replace({' ': '-'})|lower, 'niveauId': nextNiveau.id }) }}">Passer au niveau suivant</a>
-{% else %}
-    <p>Fin du scénario</p>
-{% endif %}

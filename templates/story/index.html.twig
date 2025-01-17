@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Story{% endblock %}
+{% block personnage_stats %}
+    {% if personnage is defined %}
+        {% include 'components/personnage_stats.html.twig' %}
+    {% endif %}
+{% endblock %}
+
 
 {% block body %}
     <h1>Scénarios</h1>
