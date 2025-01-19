@@ -52,7 +52,6 @@ class CréationDuPersonnageController extends AbstractController
             $em->persist($personnage);
             $em->flush();
 
-            $this->addFlash('success', 'Personnage créé avec succès !');
             return $this->redirectToRoute('story');
         }
 

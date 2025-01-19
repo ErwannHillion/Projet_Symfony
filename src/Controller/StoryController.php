@@ -72,62 +72,60 @@ final class StoryController extends AbstractController
             'caracteristiques' => $caracteristiques,
         ]);
     }
-    
-
+        
     #[Route('/story/{slug}/{niveauId}/{choixId}', name: 'story_choix')]
-public function choix(string $slug, int $niveauId, int $choixId): Response
-{
-    $scenario = $this->entityManager->getRepository(Scenario::class)->findOneBy(['NomScenario' => str_replace('-', ' ', $slug)]);
-    $niveau = $this->entityManager->getRepository(Niveau::class)->find($niveauId);
-    $choix = $this->entityManager->getRepository(Choix::class)->find($choixId);
-    //$personnage = $this->entityManager->getRepository(Personnage::class)->find(6);
-    $personnage = $this->entityManager->getRepository(Personnage::class)->findOneBy([], ['id' => 'DESC']);
+    public function choix(string $slug, int $niveauId, int $choixId): Response
+    {
+        $scenario = $this->entityManager->getRepository(Scenario::class)->findOneBy(['NomScenario' => str_replace('-', ' ', $slug)]);
+        $niveau = $this->entityManager->getRepository(Niveau::class)->find($niveauId);
+        $choix = $this->entityManager->getRepository(Choix::class)->find($choixId);
+        $personnage = $this->entityManager->getRepository(Personnage::class)->findOneBy([], ['id' => 'DESC']);
 
+        if (!$scenario || !$niveau || !$choix) {
+            throw $this->createNotFoundException('Le scénario, le niveau ou le choix n\'existe pas');
+        }
 
-    if (!$scenario || !$niveau || !$choix) {
-        throw $this->createNotFoundException('Le scénario, le niveau ou le choix n\'existe pas');
-    }
+        // Appliquer les conséquences du choix
+        if ($personnage && $personnage->getAura()) {
+            $caracteristiques = $personnage->getAura();
+            $consequences = $choix->getConsequenceChoix();
 
-    // Appliquer les conséquences du choix
-    if ($personnage && $personnage->getAura()) {
-        $caracteristiques = $personnage->getAura();
-        $consequences = $choix->getConsequenceChoix();
+            // Appliquer chaque modification de manière ordonnée
+            $caracteristiques->setAura($caracteristiques->getAura() + ($consequences[0] ?? 0));
+            $caracteristiques->setHumour($caracteristiques->getHumour() + ($consequences[1] ?? 0));
+            $caracteristiques->setCharisme($caracteristiques->getCharisme() + ($consequences[2] ?? 0));
+            $caracteristiques->setPertinence($caracteristiques->getPertinence() + ($consequences[3] ?? 0));
+            $caracteristiques->setIntelligence($caracteristiques->getIntelligence() + ($consequences[4] ?? 0));
 
-        // Appliquer chaque modification de manière ordonnée
-        $caracteristiques->setAura($caracteristiques->getAura() + ($consequences[0] ?? 0));
-        $caracteristiques->setHumour($caracteristiques->getHumour() + ($consequences[1] ?? 0));
-        $caracteristiques->setCharisme($caracteristiques->getCharisme() + ($consequences[2] ?? 0));
-        $caracteristiques->setPertinence($caracteristiques->getPertinence() + ($consequences[3] ?? 0));
-        $caracteristiques->setIntelligence($caracteristiques->getIntelligence() + ($consequences[4] ?? 0));
+            // Sauvegarder les modifications
+            $this->entityManager->persist($caracteristiques);
+            $this->entityManager->flush();
 
-        // Sauvegarder les modifications
-        $this->entityManager->persist($caracteristiques);
-        $this->entityManager->flush();
-    }
+            // Ajouter un message flash pour afficher le texte du choix
+            $this->addFlash('choiceText', $choix->getTextChoix());
+        }
 
-    // Si l'Aura est à 0 ou en dessous, rediriger vers une page de défaite
+        // Si l'Aura est à 0 ou en dessous, rediriger vers une page de défaite
+        if ($caracteristiques->getAura() <= 0) {
+            return $this->render('story/loss.html.twig', [
+                'scenario' => $scenario,
+            ]);
+        }
 
-    if ($caracteristiques->getAura() <= 0) {
-        return $this->render('story/loss.html.twig', [
-            'scenario' => $scenario,
+        // Déterminer le niveau suivant
+        $nextNiveau = $this->entityManager->getRepository(Niveau::class)->find($niveauId + 1);
+
+        if (!$nextNiveau) {
+            return $this->render('story/end.html.twig', [
+                'scenario' => $scenario,
+            ]);
+        }
+
+        return $this->redirectToRoute('story_show', [
+            'slug' => $slug,
+            'niveauId' => $nextNiveau->getId(),
         ]);
     }
-
-    // Déterminer le niveau suivant
-    $nextNiveau = $this->entityManager->getRepository(Niveau::class)->find($niveauId + 1);
-
-    if (!$nextNiveau) {
-        return $this->render('story/end.html.twig', [
-            'scenario' => $scenario,
-        ]);
-    }
-
-    return $this->redirectToRoute('story_show', [
-        'slug' => $slug,
-        'niveauId' => $nextNiveau->getId(),
-        'choixId' => $choix->getId(), 
-    ]);
-}
 
     private function slugify(string $text): string
     {
